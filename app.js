@@ -26,6 +26,7 @@ const showVerify = function () {
 const showUpdate = function () {
     $('section').hide();
     $("#update").show();
+    render();
 }
 
 const showDelete = function () {
@@ -39,7 +40,7 @@ $('#verifyBtn').on('click', showVerify);
 $('#updateBtn').on('click', showUpdate);
 $('#deleteBtn').on('click', showDelete);
 
-
+//renders employee list
 const render = function () {
     $('.list').empty();
 
@@ -50,6 +51,7 @@ const render = function () {
     }
 }
 
+//adds another employee to list and renders new list
 const addInputVal = function () {
     const name = $('#inputName').val();
     const officeNum = Number($('#inputOfficeNumber').val());
@@ -69,8 +71,8 @@ const addInputVal = function () {
 
 $('#addToList').on('click', addInputVal);
 
+//checks to see if input employee name is in employee list and renders true or false
 const verifyName = function () {
-
     $('.list').empty();
 
     const name = $('#verifyName').val();
@@ -82,6 +84,31 @@ const verifyName = function () {
         else if(i === employeeList.length - 1)
             $('.list').text("False");
     }
+    $('#verifyName').val('');
 }
 
 $('#verifyNameBtn').on('click', verifyName);
+
+//checks to see if inpput employee name is in employee list and updates office num and phone num if true and rerenders list
+const updateInfo = function () {
+    const name = $('#checkName').val();
+    const officeNum = Number($('#changeOfficeNum').val());
+    const phoneNum = $('#changePhoneNum').val();
+    const employeeInfo = {
+        name: name,
+        officeNum: officeNum,
+        phoneNum: phoneNum
+    }
+    for(let i = 0; i < employeeList.length; i++){
+        if(employeeList[i].name === name){
+            employeeList.splice(i, 1, employeeInfo)
+            break;
+        }
+    }
+    $('#checkName').val('');
+    $('#changeOfficeNum').val('');
+    $('#changePhoneNum').val('');
+    render();
+}
+
+$('#updateList').on('click', updateInfo);
