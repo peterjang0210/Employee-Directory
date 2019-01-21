@@ -12,9 +12,9 @@ const showView = function () {
 }
 
 const showAdd = function () {
-    $('section').empty();
     $('section').hide();
     $("#add").show();
+    render();
 }
 
 const showVerify = function () {
@@ -40,11 +40,30 @@ $('#deleteBtn').on('click', showDelete);
 
 
 const render = function (){
-    $('section').empty();
-    
+    $('.list').empty();
+
     for(let i = 0; i < employeeList.length; i++){
-        $('section').append(`<p>${employeeList[i].name}</p>
+        $('.list').append(`<p>${employeeList[i].name}</p>
         <p>${employeeList[i].officeNum}</p>
         <p>${employeeList[i].phoneNum}</p>`);
     }
 }
+
+const addInputVal = function (){
+    const name = $('#inputName').val();
+    const officeNum = Number($('#inputOfficeNumber').val());
+    const phoneNum = $('#inputPhoneNumber').val();
+    const employeeInfo = {
+        name: name,
+        officeNum: officeNum,
+        phoneNum: phoneNum
+    }
+    employeeList.push(employeeInfo);
+
+    $('#inputName').val('');
+    $('#inputOfficeNumber').val('');
+    $('#inputPhoneNumber').val('');
+    render();
+}
+
+$('#addToList').on('click', addInputVal);
