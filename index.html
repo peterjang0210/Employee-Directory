@@ -7,31 +7,41 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
     crossorigin="anonymous">
+  <link rel="stylesheet" href="./style.css">
   <title>Document</title>
 </head>
 
 <body>
   <nav>
-    <ul class="nav flex-column">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">VIEW</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">ADD</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">VERIFY</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">UPDATE</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">DELETE</a>
-      </li>
-    </ul>
+    <div class="row">
+      <div class="column-12">
+        <button type="button" class="btn btn-light" id="viewBtn">VIEW</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column-12">
+        <button type="button" class="btn btn-light" id="addBtn">ADD</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column-12">
+        <button type="button" class="btn btn-light" id="verifyBtn">VERIFY</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column-12">
+        <button type="button" class="btn btn-light" id="updateBtn">UPDATE</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column-12">
+        <button type="button" class="btn btn-light" id="deleteBtn">DELETE</button>
+      </div>
+    </div>
   </nav>
+
   <main>
-    <section id = "view"></section>
+    <section id="view"></section>
     <section id="add"></section>
     <section id="verify"></section>
     <section id="update"></section>
