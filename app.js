@@ -1,4 +1,4 @@
-(function() {
+(function () {
     $('#add').hide();
     $('#verify').hide();
     $('#update').hide();
@@ -18,6 +18,7 @@ const showAdd = function () {
 }
 
 const showVerify = function () {
+    $('.list').empty();
     $('section').hide();
     $("#verify").show();
 }
@@ -31,7 +32,7 @@ const showDelete = function () {
     $('section').hide();
     $("#delete").show();
 }
-  
+
 $('#viewBtn').on('click', showView);
 $('#addBtn').on('click', showAdd);
 $('#verifyBtn').on('click', showVerify);
@@ -39,17 +40,17 @@ $('#updateBtn').on('click', showUpdate);
 $('#deleteBtn').on('click', showDelete);
 
 
-const render = function (){
+const render = function () {
     $('.list').empty();
 
-    for(let i = 0; i < employeeList.length; i++){
+    for (let i = 0; i < employeeList.length; i++) {
         $('.list').append(`<p>${employeeList[i].name}</p>
         <p>${employeeList[i].officeNum}</p>
         <p>${employeeList[i].phoneNum}</p>`);
     }
 }
 
-const addInputVal = function (){
+const addInputVal = function () {
     const name = $('#inputName').val();
     const officeNum = Number($('#inputOfficeNumber').val());
     const phoneNum = $('#inputPhoneNumber').val();
@@ -67,3 +68,20 @@ const addInputVal = function (){
 }
 
 $('#addToList').on('click', addInputVal);
+
+const verifyName = function () {
+
+    $('.list').empty();
+
+    const name = $('#verifyName').val();
+    for (let i = 0; i < employeeList.length; i++) {
+        if (employeeList[i].name === name) {
+            $('.list').text("True");
+            break;
+        }
+        else if(i === employeeList.length - 1)
+            $('.list').text("False");
+    }
+}
+
+$('#verifyNameBtn').on('click', verifyName);
