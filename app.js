@@ -32,6 +32,7 @@ const showUpdate = function () {
 const showDelete = function () {
     $('section').hide();
     $("#delete").show();
+    render();
 }
 
 $('#viewBtn').on('click', showView);
@@ -89,9 +90,9 @@ const verifyName = function () {
 
 $('#verifyNameBtn').on('click', verifyName);
 
-//checks to see if inpput employee name is in employee list and updates office num and phone num if true and rerenders list
+//checks to see if input employee name is in employee list and updates office num and phone num if true and rerenders list
 const updateInfo = function () {
-    const name = $('#checkName').val();
+    const name = $('#updateName').val();
     const officeNum = Number($('#changeOfficeNum').val());
     const phoneNum = $('#changePhoneNum').val();
     const employeeInfo = {
@@ -105,10 +106,25 @@ const updateInfo = function () {
             break;
         }
     }
-    $('#checkName').val('');
+    $('#updateName').val('');
     $('#changeOfficeNum').val('');
     $('#changePhoneNum').val('');
     render();
 }
 
 $('#updateList').on('click', updateInfo);
+
+//checks to see if input employee is in employee list and deletes their info if true then rerenders list
+const deleteInfo = function () {
+    const name = $('#deleteName').val();
+    for(let i = 0; i < employeeList.length; i++){
+        if(employeeList[i].name === name){
+            employeeList.splice(i, 1)
+            break;
+        }
+    }
+    $('#deleteName').val('');
+    render();
+}
+
+$('#deleteEmployee').on('click', deleteInfo);
