@@ -1,0 +1,50 @@
+.row{
+    margin-bottom: 10px;
+}
+
+nav{
+    background-color: #6c757d;
+    color: white;
+    position: fixed;
+    left: 0px;
+    width: 15%;
+    box-sizing: border-box;
+    padding-top: 100px;
+    padding-left: 50px;
+    padding-bottom: 1500px;
+}
+
+.list{
+    float: left;
+    padding-left: 17%;
+    padding-top: 20px;
+    clear: both;
+}
+
+.employee{
+    border: 1px solid lightgray;
+    padding:5px 300px 10px 10px;
+    margin-bottom: 10px;
+}
+
+.input-group{
+    padding: 20px;
+    float:left;
+    width:310px;
+}
+
+#add, #update{
+    margin-left: 20%;
+}
+
+#verify, #delete{
+    margin-left: 40%;
+}
+
+#addToList, #updateList{
+    margin-left: 500px;
+}
+
+#verifyNameBtn, #deleteEmployee{
+    margin: 25px auto;
+}

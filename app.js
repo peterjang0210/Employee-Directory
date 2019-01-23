@@ -46,9 +46,9 @@ const render = function () {
     $('.list').empty();
 
     for (let i = 0; i < employeeList.length; i++) {
-        $('.list').append(`<p>${employeeList[i].name}</p>
+        $('.list').append(`<div class = employee><p>${employeeList[i].name}</p>
         <p>${employeeList[i].officeNum}</p>
-        <p>${employeeList[i].phoneNum}</p>`);
+        <p>${employeeList[i].phoneNum}</p></div>`);
     }
 }
 
@@ -79,11 +79,11 @@ const verifyName = function () {
     const name = $('#verifyName').val();
     for (let i = 0; i < employeeList.length; i++) {
         if (employeeList[i].name === name) {
-            $('.list').text("True");
+            $('.list').text("Yes");
             break;
         }
         else if(i === employeeList.length - 1)
-            $('.list').text("False");
+            $('.list').text("No");
     }
     $('#verifyName').val('');
 }
